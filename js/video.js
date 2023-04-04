@@ -26,7 +26,7 @@ window.addEventListener("load", function() {
 document.querySelector("#play").addEventListener
 ("click", function() {
 	video.play();
-    volume.textContent = volume.value;
+    document.querySelector('#volume').textContent= (video.volume * 100) + '%';
 });
 
 
@@ -38,15 +38,15 @@ document.querySelector("#pause").addEventListener
 
 document.querySelector("#slower").addEventListener
 ("click", function(){
-    video.playbackRate *= .90;
-    console.log("Speed is" + video.playbackRate);
+    video.playbackRate *= 0.90;
+    console.log("Speed is " + video.playbackRate);
 });
 
 
 document.querySelector("#faster").addEventListener
 ("click", function(){
     video.playbackRate /= 0.90;
-    console.log(video.playbackRate);
+    console.log('Speed is ' + video.playbackRate);
 });
 
 
@@ -55,11 +55,11 @@ document.querySelector("#skip").addEventListener
     video.currentTime += 10;
     if (video.currentTime >= video.duration){
         video.currentTime = 0}
-console.log("current time is" +video.currentTime);
+console.log("current time is" + video.currentTime);
 });
 
 
-document.querySelecto('slider').addEventListener('change', function() {
+document.querySelector('#slider').addEventListener('change', function() {
 	video.volume = (this.value)/100;
 	document.querySelector('#volume').textContent=this.value + '%';
 });
@@ -82,17 +82,5 @@ document.querySelector('#vintage').addEventListener('click', function() {
 document.querySelector('#orig').addEventListener('click', function() {
 	video.classList = 'video';
 });
-
-// -----VOLUME SLIDER-----
-// document.querySelector("#slider").addEventListener
-// ("change", function(){
-//     console.log("I am in slider")
-//     console.log(this)
-//     console.log(this.value)
-//     bd = document.querySelector("body")
-//     bd.style.fontSize = this.value + "px"
-    
-// });
-
 
 
