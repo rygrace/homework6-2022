@@ -22,18 +22,6 @@ window.addEventListener("load", function() {
     video.load()
 });
 
-// -----LOAD VIDEO -----
-
-// function loadVideo() {
-//     video.load();
-// }
-
-// document.querySelector("#play").addEventListener
-// ("click", loadVideo() );
-
-// window.addEventListener
-
-// -----PLAY VIDEO-----
 
 document.querySelector("#play").addEventListener
 ("click", function() {
@@ -42,55 +30,39 @@ document.querySelector("#play").addEventListener
 });
 
 
-
-// -----PAUSE VIDEO-----
-
 document.querySelector("#pause").addEventListener
 ("click", function(){
 	video.pause();
 });
 
-// -----SLOW DOWN-----
 
 document.querySelector("#slower").addEventListener
 ("click", function(){
-    video.playbackRate *= .95;
+    video.playbackRate *= .90;
     console.log("Speed is" + video.playbackRate);
 });
 
-// need a for loop to incrementally increase/decrease speed?
 
-
-// -----SPEED UP-----
 document.querySelector("#faster").addEventListener
 ("click", function(){
-    video.playbackRate /= 0.95;
+    video.playbackRate /= 0.90;
     console.log(video.playbackRate);
 });
 
-// -----SKIP AHEAD-----
-
-
-// document.querySelector("#skip").addEventListener
-// ("click", function(){
-//     video.currentTime += 15;
-//     console.log(video.currentTime);
-// });
 
 document.querySelector("#skip").addEventListener
 ("click", function(){
-    video.currentTime += 15;
-    if (video.currentTime >= video.duration)
-        video.currentTime = 0
+    video.currentTime += 10;
+    if (video.currentTime >= video.duration){
+        video.currentTime = 0}
 console.log("current time is" +video.currentTime);
 });
 
-// video.addEventListener
-// ("ended", function(){
-//     video.load();
-// });
 
-// -----MUTE-----
+document.querySelecto('slider').addEventListener('change', function() {
+	video.volume = (this.value)/100;
+	document.querySelector('#volume').textContent=this.value + '%';
+});
 
 document.querySelector("#mute").addEventListener
 ("click", function()
@@ -104,6 +76,13 @@ document.querySelector("#mute").addEventListener
 }
 });
 
+document.querySelector('#vintage').addEventListener('click', function() {
+	video.classList = 'video oldSchool';
+});
+document.querySelector('#orig').addEventListener('click', function() {
+	video.classList = 'video';
+});
+
 // -----VOLUME SLIDER-----
 // document.querySelector("#slider").addEventListener
 // ("change", function(){
@@ -115,27 +94,5 @@ document.querySelector("#mute").addEventListener
     
 // });
 
-// -----DOES NOT WORK -----
 
-// function playVideo() {
-//     video.play();
-// }
-
-// function pauseVideo() {
-//     video.pause();
-// }
-
-// document.querySelector("#play").addEventListener
-// ("click", playVideo());
-
-// document.querySelector("#play").addEventListener
-// ("click", function() {
-//     video.load();
-// });
-
-// document.querySelector("#skip").addEventListener
-// ("click", function(){
-//     video.currentTime(video.currentTime() + 15)
-//     console.log(video.currentTime);
-// });
 
